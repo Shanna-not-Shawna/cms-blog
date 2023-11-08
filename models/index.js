@@ -1,13 +1,26 @@
-const Model1 = require('./Model1');
-const Model2 = require('./Model2');
-const Model3 = require('./Model3');
+const User = require('./User');
+const Post = require('./Post');
+const Comment = require('./Comment');
 
-Model1.hasMany(Model3, {
-    foreignKey: 'keyNumber',
+User.hasMany(Post, {
+    foreignKey: 'user_id',
+    onDelete: "CASCADE"
 });
 
-Model3.belongsTo(Model2, {
-    foreignKey: 'keyNumber'
-})
+Post.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: "CASCADE"
+});
 
-module.exports = { Model1, Model2, Model3 };
+Post.hasMany(Comment, {
+    foreignKey: "post_id",
+    onDelete: "CASCADE"
+});
+  
+Comment.belongsTo(User, {
+    foreignKey: "user_id",
+    onDelete: "CASCADE"
+});
+  
+  
+module.exports = { User, Post, Comment };

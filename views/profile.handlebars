@@ -1,0 +1,24 @@
+<link rel='stylesheet' href='/css/jass.css' />
+
+<section class="authored-by">
+  <h2>BY: </h2>
+   <h2> {{name}}</h2>
+</section>
+
+<section>
+ <main class="recent-posts">
+    {{#each posts as |post|}}
+    <div class="your-postsh2">
+    <h2>Recent Post</h2>
+    </div>
+    <div class='your-post'>
+      <h4 class="card-title">{{post.title}}</h4>
+      <p class="card-text">{{post.content}}</p>
+      <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+    </div>
+    {{/each}}
+
+  </main>
+</section>
+<script src="/js/newpost.js"></script>
+<script src="/js/comment.js"></script>
