@@ -32,6 +32,7 @@
 
           <h4 class="card-title">{{post.title}} by <b>{{post.user.name}}</b></h4>
 
+  <p class="date">{{format_date post.date_created}}</p>
           <p class="card-text">{{post.content}}</p>
           <a href="/post/{{post.id}}" class="btn btn-primary">Comments</a>
         </div>
@@ -42,4 +43,4 @@
   </section>
 
 </div>
-<script src='/public/css/js/login.js'></script>
+<script src='./js/login.js'></script>

@@ -40,10 +40,12 @@ const newPostHandler = async (event) => {
   //   }
   // };
   
-  document
-    .querySelector(".new-post-form")
-    .addEventListener("submit", newPostHandler);
-  
+  const newPostButtons = document
+    .querySelector(".new-post-form");
+
+  if(newPostButtons){
+    newPostButtons.addEventListener("submit", newPostHandler);
+  }
   // document
   //   .querySelector(".post-list")
   //   .addEventListener("click", delButtonHandler);
