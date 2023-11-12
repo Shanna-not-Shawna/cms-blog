@@ -1,28 +1,5 @@
 <link rel='stylesheet' href='/css/jass.css' />
 
-
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <div class="search-container">
-      <form class="d-flex search-bar" role="search" id='game-search-form'>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-
-
-<div>
-  <section class='top-section'>
-    <section></section>
-
-  </section>
-
-
-
-  <section class='right-container'>
-
     <main class='feed'>
       {{#each posts as |post|}}
 
@@ -30,9 +7,7 @@
 
         <div class="card-body">
 
-          <h4 class="card-title">{{post.title}} by <b>{{post.user.name}}</b></h4>
-
-  <p class="date">{{format_date post.date_created}}</p>
+          <h4 class="card-title">{{post.title}} by <b>{{post.user.name}} on {{format_date post.date_created}}</b></h4>
           <p class="card-text">{{post.content}}</p>
           <a href="/post/{{post.id}}" class="btn btn-primary">Comments</a>
         </div>
@@ -40,7 +15,5 @@
       {{/each}}
     </main>
 
-  </section>
 
-</div>
 <script src='./js/login.js'></script>
