@@ -56,12 +56,12 @@ router.get("/post/:id", async (req, res) => {
 });
 
 
-router.get("/newpost", (req, res) => {
+// router.get("/newpost", (req, res) => {
 
 
 
-  res.render("newpost");
-});
+//   res.render("newpost");
+// });
 
 
 //withAuth required to view profile
@@ -88,6 +88,28 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 });
 
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [
+        {
+          model: Post
+        },
+      ],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render("dashboard", {
+      ...user,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get("post/:id", async (req, res) => {
   try {

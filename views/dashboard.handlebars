@@ -1,0 +1,22 @@
+<link rel='stylesheet' href='/css/jass.css'>
+<link rel="stylesheet" href="/css/style.css">
+
+<section class="authored-by">
+  <h2>Welcome, {{name}}! Here are your posts: </h2>
+</section>
+
+<section>
+ <main class="recent-posts">
+    {{#each posts as |post|}}
+    <div class="your-posts">
+    </div>
+    <div class='your-post'>
+      <h4 class="card-title">{{post.title}}</h4>
+      <p class="card-text">{{post.content}}</p>
+      <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+    </div>
+    {{/each}}
+
+  </main>
+</section>
+<script src="/js/newpost.js"></script>
