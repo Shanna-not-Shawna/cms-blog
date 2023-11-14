@@ -4,9 +4,9 @@ const newCommentForm = document.querySelector(".new-comment-form");
 
 
 //*browser not happy about event listener for some reason but it still works.
-addCommentButton.addEventListener("click", function() {
-  newCommentForm.style.display = "block";
-});
+// addCommentButton.addEventListener("click", function() {
+//   newCommentForm.style.display = "block";
+// });
 
 document.getElementById("deleteButton").addEventListener("click", function() {
   this.textContent = "The internet is forever...";

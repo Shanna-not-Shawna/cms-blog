@@ -4,14 +4,17 @@
 <section class="authored-by">
   <h2>Welcome, {{name}}! Here are your posts: </h2>
 </section>
-
+{{#if logged_in}}
+          <a class="nav-link" href="/newpost">Post a new Recipe</a></li>
+        {{else}}
+        {{/if}}
 <section>
  <main class="recent-posts">
     {{#each posts as |post|}}
     <div class="your-posts">
     </div>
     <div class='your-post'>
-      <h4 class="card-title">{{post.title}}</h4>
+      <h4 class="card-title">{{post.title}} on {{format_date post.date_created}}</h4>
       <p class="card-text">{{post.content}}</p>
       <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
     </div>

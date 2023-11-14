@@ -6,3 +6,13 @@
 .card-body {
     background-color: pink;
 }
+
+.card-title {
+    background-color: rosybrown;
+    color: white;
+    padding: 3px 3px 3px 8px;
+}
+
+.btn-primary {
+    background-color: pink;
+}
