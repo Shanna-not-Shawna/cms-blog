@@ -23,9 +23,9 @@ const newFormHandler = async (event) => {
 
 
   if (content) {
-    const response = await fetch("/api/comments", {
+    const response = await fetch("/api/comments/post/${id}", {
       method: "POST",
-      body: JSON.stringify({ content, post_id }),
+      body: JSON.stringify({ content }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -33,7 +33,7 @@ const newFormHandler = async (event) => {
     console.log(response);
 
     if (response.ok) {
-      document.location.reload();
+      document.location.replace("/post/${id}");
     } else {
       alert("Failed to create comment");
     }

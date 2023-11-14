@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the home page
-        document.location.replace("/");
+        document.location.replace("/dashboard");
       } else {
         alert(response.statusText);
       }
@@ -25,6 +25,6 @@ const loginFormHandler = async (event) => {
   
   document
     .querySelector(".login-form")
-    // .addEventListener("submit", loginFormHandler);
+    .addEventListener("submit", loginFormHandler);
   
   

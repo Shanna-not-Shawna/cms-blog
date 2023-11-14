@@ -64,7 +64,7 @@ router.get("/post/:id", async (req, res) => {
 // });
 
 
-//withAuth required to view profile
+// withAuth required to view profile
 router.get("/profile", withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
