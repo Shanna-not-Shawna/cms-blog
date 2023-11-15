@@ -56,7 +56,7 @@ User.init(
     },
     sequelize,
     // hopefully will fix the index error on the user table
-    indexes:[{unique:true, fields ['email']}]
+    indexes:[{unique:true, fields: ['email']}],
     timestamps: false,
     freezeTableName: true,
     underscored: true,
