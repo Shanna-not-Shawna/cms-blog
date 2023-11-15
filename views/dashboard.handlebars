@@ -6,8 +6,7 @@
 </section>
 {{#if logged_in}}
           <a class="nav-link" href="/newpost">Post a new Recipe</a></li>
-        {{else}}
-        {{/if}}
+{{/if}}
 <section>
  <main class="recent-posts">
     {{#each posts as |post|}}
@@ -23,3 +22,4 @@
   </main>
 </section>
 <script src="/js/newpost.js"></script>
+<script src="/delete.js"></script>

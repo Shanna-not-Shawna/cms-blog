@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipe Blog</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  
+
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 
@@ -16,45 +16,37 @@
 </head>
 
 <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <h2>[recipe blog]</h2>
-    <a class="navbar-brand" href="/">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          {{#if logged_in}}
-          <a class="nav-link" href="/dashboard">Dashboard</a></li>
-        <li class="nav-item"><button class="no-button btn btn-dark" id="logout">Logout</button></li>
-          {{else}}
-          {{!-- come back and bounce to login page properly --}}
-          <a class="nav-link" href="/login">Dashboard</a></li>
-        <a class="nav-link" href="/login">Login</a></li>
-      </ul>
-        {{/if}}
-       
-
-      
-
-    </div>
-  </div>
+  <h2>[recipe blog]</h2>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/dashboard">Dashboard</a>
+    </li>
+    {{#if logged_in}}
+    <li class="nav-item">
+      <a class="nav-link" href="/api/users/logout">Log Out</a>
+    </li>
+    {{else}}
+    <li class="nav-item">
+      <a class="nav-link" href="/login">Log in</a>
+    </li>
+    {{/if}}
+  </ul>
 </nav>
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      {{{ body }}}
-    </main>
-    <footer>
 
-    </footer>
-  </div>
+<main class="container container-fluid mt-5">
+  {{{ body }}}
+</main>
+<footer>
 
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+</footer>
+</div>
+
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
 
 
 </body>

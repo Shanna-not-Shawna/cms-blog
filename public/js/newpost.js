@@ -3,13 +3,11 @@ const newPostHandler = async (event) => {
   
     const title = document.querySelector("#post-title").value.trim();
     const content = document.querySelector("#post-content").value.trim();
-    const system = document.querySelector("#post-system").value.trim();
-    const category = document.querySelector("#post-category").value.trim();
   
-    if (title && system && category && content ) {
+    if (title && content ) {
       const response = await fetch("/api/posts", {
         method: "POST",
-        body: JSON.stringify({ title, system, category, content}),
+        body: JSON.stringify({ title, content}),
         headers: {
           "Content-Type": "application/json",
         },
@@ -24,21 +22,21 @@ const newPostHandler = async (event) => {
     }
   };
   
-  // const delButtonHandler = async (event) => {
-  //   if (event.target.hasAttribute("data-id")) {
-  //     const id = event.target.getAttribute("data-id");
+  const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute("data-id")) {
+      const id = event.target.getAttribute("data-id");
   
-  //     const response = await fetch(`/api/posts/${id}`, {
-  //       method: "DELETE",
-  //     });
+      const response = await fetch(`/api/posts/${id}`, {
+        method: "DELETE",
+      });
   
-  //     if (response.ok) {
-  //       document.location.replace("/profile");
-  //     } else {
-  //       alert("Failed to delete post");
-  //     }
-  //   }
-  // };
+      if (response.ok) {
+        document.location.replace("/dashboard");
+      } else {
+        alert("Failed to delete post");
+      }
+    }
+  };
   
   const newPostButtons = document
     .querySelector(".new-post-form");
@@ -46,7 +44,7 @@ const newPostHandler = async (event) => {
   if(newPostButtons){
     newPostButtons.addEventListener("submit", newPostHandler);
   }
-  // document
-  //   .querySelector(".post-list")
-  //   .addEventListener("click", delButtonHandler);
+  document
+    .querySelector(".post-list")
+    .addEventListener("click", delButtonHandler);
   

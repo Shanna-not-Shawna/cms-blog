@@ -1,16 +1,17 @@
 const addCommentButton = document.getElementById("addCommentButton");
 const newCommentForm = document.querySelector(".new-comment-form");
-// const postCommentButton = document.getElementById("postCommentButton");
+const postCommentButton = document.getElementById("postCommentButton");
 
 
 //*browser not happy about event listener for some reason but it still works.
-// addCommentButton.addEventListener("click", function() {
-//   newCommentForm.style.display = "block";
-// });
-
-document.getElementById("deleteButton").addEventListener("click", function() {
-  this.textContent = "The internet is forever...";
+addCommentButton.addEventListener("click", function() {
+  newCommentForm.style.display = "block";
 });
+ 
+function deleteComment(commentId) {
+  console.log(commentId)
+  this.textContent = "The internet is forever...";
+};
 
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -23,9 +24,12 @@ const newFormHandler = async (event) => {
 
 
   if (content) {
-    const response = await fetch("/api/comments/post/${id}", {
+    const response = await fetch(`/api/comments`, {
       method: "POST",
-      body: JSON.stringify({ content }),
+      body: JSON.stringify({ 
+        content,
+        post_id
+       }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -33,7 +37,7 @@ const newFormHandler = async (event) => {
     console.log(response);
 
     if (response.ok) {
-      document.location.replace("/post/${id}");
+      document.location.replace(`/post/${post_id}`);
     } else {
       alert("Failed to create comment");
     }

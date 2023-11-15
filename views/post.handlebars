@@ -28,7 +28,7 @@
 
     <h5 class="card-title">{{comment.user.name}}</h5>
     <p class="card-text">{{comment.content}}</p>
-    <button id="deleteButton" class="btn btn-danger">Delete</button>
+    <button  class="btn btn-danger" onclick="()=>{ deleteComment({{comment.id}})}">Delete</button>
     {{/each}}
   </div>
 
