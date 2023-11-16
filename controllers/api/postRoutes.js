@@ -2,9 +2,9 @@ const router = require("express").Router();
 const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// Get all posts
 router.get("/", async (req, res) => {
   try {
-    // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
         {
@@ -26,6 +26,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// create a post
 router.post("/", withAuth, 
   async (req, res) => {
     try {
@@ -40,6 +41,9 @@ router.post("/", withAuth,
     }
   });
 
+// TODO insert update a post here
+
+  // delete a post
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({

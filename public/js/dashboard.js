@@ -1,8 +1,8 @@
 const newRecipeForm = document.getElementById(".new-recipe-form");
 
-postRecipeButton.addEventListener("click", function() {
-    newRecipeForm.style.display = "block";
-  });
+// postRecipeButton.addEventListener("click", function() {
+//     newRecipeForm.style.display = "block";
+//   });
   
   const newFormHandler = async (event) => {
     event.preventDefault();
@@ -10,7 +10,7 @@ postRecipeButton.addEventListener("click", function() {
     const recipe = document.getElementById("recipeContent").value.trim();
   
   
-    if (recipe) {
+    if (title && recipe) {
       const response = await fetch(`/api/post`, {
         method: "POST",
         body: JSON.stringify({ title, recipe }),
@@ -26,16 +26,29 @@ postRecipeButton.addEventListener("click", function() {
         alert("Failed to create post");
       }
     }
-    // You can add code to send the newComment to your server and update the comments array.
-    // After that, you can clear the comment input and hide it again.
-    // content.value = "";
-    // newCommentForm.style.display = "none";
+  };
+
+  const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
   
+      const response = await fetch(`/api/post/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to delete post');
+      }
+    }
   };
 
 
-
+  // document
+  // .querySelector(".new-recipe-form")
+  // .addEventListener("submit", newFormHandler);
 
   document
-  .querySelector(".new-recipe-form")
-  .addEventListener("submit", newFormHandler);
+  .querySelector('.your-post')
+  .addEventListener('click', delButtonHandler);
