@@ -2,9 +2,9 @@ const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
+// get all posts
 router.get("/", async (req, res) => {
   try {
-    // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
         {
@@ -55,6 +55,7 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
+
 router.get("newpost", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -77,33 +78,32 @@ router.get("newpost", withAuth, async (req, res) => {
   }
 });
 
-// withAuth required to view profile
-router.get("/profile", withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-attributes: { exclude: ["password"] },
-      include: [
-        {
-          model: Post
-        },
-      ],
-    });
+// // withAuth required to view profile
+// router.get("/profile", withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+// attributes: { exclude: ["password"] },
+//       include: [
+//         {
+//           model: Post
+//         },
+//       ],
+//     });
 
-    const user = userData.get({ plain: true });
+//     const user = userData.get({ plain: true });
 
-    res.render("profile", {
-      ...user,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render("profile", {
+//       ...user,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [
@@ -155,7 +155,7 @@ router.get("post/:id", async (req, res) => {
 router.get("/login", (req, res) => {
   // If user is logged in, redirect to another route
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
 

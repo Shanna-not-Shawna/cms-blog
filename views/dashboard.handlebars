@@ -2,7 +2,9 @@
   <h2>Welcome, {{name}}! Here are your posts: </h2>
 </section>
 {{#if logged_in}}
-    <button type="button" class="btn btn-outline-dark" id="addRecipeButton">Post a new Recipe</button>
+    <a href="/newpost">
+    <button type="button" class="btn btn-outline-dark" id="addPostButton" >Post a new Recipe</button>
+    </a>
 {{/if}}
 <section>
 

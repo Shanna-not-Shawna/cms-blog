@@ -24,7 +24,7 @@
   {{#each comments as |comment|}}
   <div class="card">
 
-    <h5 class="card-title">{{comment.user.name}} on {{post.date_created}}</h5>
+    <h5 class="card-title">{{comment.user.name}} on {{comment.created_at}}</h5>
     <p class="card-text">{{comment.content}}</p>
     <button  class="btn btn-primary" onclick="()=>{ deleteComment({{comment.id}})}">Delete</button>
     {{/each}}

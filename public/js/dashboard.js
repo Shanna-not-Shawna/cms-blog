@@ -1,13 +1,13 @@
-const newRecipeForm = document.getElementById(".new-recipe-form");
+const newPostForm = document.getElementById(".new-post-form");
 
-// postRecipeButton.addEventListener("click", function() {
-//     newRecipeForm.style.display = "block";
+// postButton.addEventListener("click", function() {
+//     newPostForm.style.display = "block";
 //   });
   
   const newFormHandler = async (event) => {
     event.preventDefault();
-    const title = document.querySelector('#recipe-title').value.trim();
-    const recipe = document.getElementById("recipeContent").value.trim();
+    const title = document.querySelector('#post-title').value.trim();
+    const recipe = document.getElementById("postContent").value.trim();
   
   
     if (title && recipe) {
@@ -45,9 +45,9 @@ const newRecipeForm = document.getElementById(".new-recipe-form");
   };
 
 
-  // document
-  // .querySelector(".new-recipe-form")
-  // .addEventListener("submit", newFormHandler);
+  document
+  .querySelector(".new-post-form")
+  .addEventListener("submit", newFormHandler);
 
   document
   .querySelector('.your-post')

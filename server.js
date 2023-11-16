@@ -17,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 3000000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
@@ -44,3 +44,12 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+
+
+// TODOs
+// Fix delete comment - no error
+// Fix delete post - "Failed to delete post"
+// Fix Newpost route - "Cannot GET /newpost"
+// Check javascript links at bottom of each page and maybe add #if around them
+// Fix Log out functionality - "failed to log out"
+// Format date on comments and posts
