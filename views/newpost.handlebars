@@ -1,23 +1,15 @@
-<link rel='stylesheet' href='/css/jass.css'>
-<link rel="stylesheet" href="/css/style.css">
-
 <h3 class="card-title">Create a New Post:</h3>
 <div class='post card'>
     <div class="card-body">
-        <form class="form new-post-form">
-                <div class="form-group">
-                        <label for="post-title">Post Title:</label>
-                        <input type="text" class="form-control" id="post-title" name="post-title"
-                            placeholder="Title of post">
-                    </div>
-        
-                    <div class="form-group">
-                        <label for="post-content">Post Content:</label>
-                        <textarea class="form-control" id="post-content" name="post-content" rows="5"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Create Post</button>
-                    </div>
+    <form class="form new-recipe-form">
+      <div class="form-group">
+        <label for="recipe-title">Title</label>
+        <label for="recipe"></label>
+        <textarea class="form-control" id="recipeContent" rows="10" placeholder="Enter your recipe"></textarea>
+      </div>
+      <button type="submit" id="postRecipeButton" class="btn btn-primary">Post Recipe</button>
+    </form>
+  </div>
         </form>
     </div>
 </div>

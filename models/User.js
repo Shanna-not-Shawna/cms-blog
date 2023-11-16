@@ -23,7 +23,8 @@ User.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      // removed unique required due to index issue on user table.
+      unique: false,
       validate: {
         isEmail: true,
       },
@@ -56,6 +57,7 @@ User.init(
     },
     sequelize,
     // hopefully will fix the index error on the user table
+    // spoiler: it did not fix the issue. 
     indexes:[{unique:true, fields: ['email']}],
     timestamps: false,
     freezeTableName: true,

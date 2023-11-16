@@ -9,8 +9,7 @@ addCommentButton.addEventListener("click", function() {
 });
  
 function deleteComment(commentId) {
-  console.log(commentId)
-  this.textContent = "The internet is forever...";
+  console.log(commentId);
 };
 
 const newFormHandler = async (event) => {

@@ -1,26 +1,23 @@
-<link rel='stylesheet' href='/css/jass.css'>
-<link rel="stylesheet" href="/css/style.css">
-
 <section class="authored-by">
   <h2>Welcome, {{name}}! Here are your posts: </h2>
 </section>
 {{#if logged_in}}
-          <a class="nav-link" href="/newpost">Post a new Recipe</a></li>
+    <button type="button" class="btn btn-outline-dark" id="addRecipeButton">Post a new Recipe</button>
 {{/if}}
 <section>
+
  <main class="recent-posts">
     {{#each posts as |post|}}
     <div class="your-posts">
     </div>
     <div class='your-post'>
-      <h4 class="card-title">{{post.title}} on {{format_date post.date_created}}</h4>
+      <h4 class="card-title">{{post.title}} on {{post.date_created}}</h4>
       <p class="card-text">{{post.content}}</p>
-      <a href="/post/{{post.id}}" class="btn btn-primary">Comments</a>
-      <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      <a href="/post/{{post.id}}" class="btn btn-primary">View Comments</a>
+      <button class="btn btn-sm btn-danger" data-id="{{post.id}}">Delete Post</button>
     </div>
     {{/each}}
 
   </main>
 </section>
-<script src="/js/newpost.js"></script>
-<script src="/delete.js"></script>
+<script src="/js/dashboard.js"></script>
