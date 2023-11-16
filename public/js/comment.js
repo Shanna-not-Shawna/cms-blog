@@ -45,7 +45,6 @@ const newFormHandler = async (event) => {
   // After that, you can clear the comment input and hide it again.
   content.value = "";
   newCommentForm.style.display = "none";
-
 };
 
 
