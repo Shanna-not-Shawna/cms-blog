@@ -8,10 +8,10 @@ addCommentButton.addEventListener("click", function() {
   newCommentForm.style.display = "block";
 });
  
-function deleteComment(commentId, commentUserId, currentUserId) {
+function deleteComment(commentId) {
   if(commentUserId !== currentUserId){
     alert("You can't delete this!")
-  }else{
+  } else {
     ///fetch
   }
 };
@@ -45,8 +45,6 @@ const newFormHandler = async (event) => {
       alert("Failed to create comment");
     }
   }
-  // You can add code to send the newComment to your server and update the comments array.
-  // After that, you can clear the comment input and hide it again.
   content.value = "";
   newCommentForm.style.display = "none";
 };

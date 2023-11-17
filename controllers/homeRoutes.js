@@ -61,7 +61,7 @@ router.get("/post/:id", async (req, res) => {
 
 router.get("/", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/newpost");
+    res.redirect("/updatepost");
     return;
   }
 
@@ -137,5 +137,28 @@ router.get("/createAccount", (req, res) => {
 
   res.render("createAccount");
 });
+
+router.get('/updatepost/:id', withAuth, async (req, res) => {
+  try {
+      const blogPostData = await Post.findByPk(req.params.id, {
+          include: [
+              {
+                  model: User,
+                  attributes: ['name'],
+              }
+          ]
+      });
+
+      const post = postData.get({ plain: true });
+
+      res.render('updatepost', {
+          ...blogpost,
+          logged_in: req.session.logged_in,
+      });
+  } catch (err) {
+      res.status(500).json(err);
+  }
+})
+
 
 module.exports = router;

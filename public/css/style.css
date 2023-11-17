@@ -2,6 +2,9 @@
     background-color: rosybrown;
     color: white;
 }
+.nav-link a {
+    color: black;
+}
 
 .card-body {
     background-color: pink;
@@ -19,5 +22,4 @@
 
 .btn {
     background-color: bisque;
-    
 }

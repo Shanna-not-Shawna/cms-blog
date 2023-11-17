@@ -420,12 +420,12 @@
   }
   
   a {
-    color: #1b89bc;
+    color: #000000;
     text-decoration: none;
   }
   
   a:hover {
-    color: #065b83;
+    color: #FFFFFF;
     text-decoration: underline;
   }
   
@@ -973,7 +973,7 @@
     text-align: center;
     display: inline-block;
     padding: 0.5rem 1.2rem;
-    margin: 0;
+    margin-bottom: 5px;
     text-decoration: none;
     font-size: 1rem;
     border-radius: 0.3rem;

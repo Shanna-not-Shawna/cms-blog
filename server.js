@@ -44,12 +44,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-
-// TODOs
-
-// Fix delete comment - no error
-// Fix delete post - "Failed to delete post"
-// Check javascript links at bottom of each page and maybe add #if around them
-// Style nav bar to be more legible
-// Remove 'modal' on form on createAccount.handlebars
