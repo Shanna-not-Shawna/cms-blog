@@ -9,7 +9,7 @@ To use this application, click the deployed website link below. On the home page
 
 Link to deployed application:
 
-[Recipe Blog App](https:.herokuapp.com/)
+[Recipe Blog App](https://safe-beyond-36437-fd4baa9db3a8.herokuapp.com)
 
 ## License
 
