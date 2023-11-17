@@ -1,19 +1,15 @@
 const newPostForm = document.getElementById(".new-post-form");
 
-// postButton.addEventListener("click", function() {
-//     newPostForm.style.display = "block";
-//   });
-  
   const newFormHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#post-title').value.trim();
-    const recipe = document.getElementById("postContent").value.trim();
+    const recipe = document.getElementById("post-content").value.trim();
   
   
     if (title && recipe) {
-      const response = await fetch(`/api/post`, {
+      const response = await fetch(`/api/posts`, {
         method: "POST",
-        body: JSON.stringify({ title, recipe }),
+        body: JSON.stringify({ title, content:recipe }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -32,7 +28,7 @@ const newPostForm = document.getElementById(".new-post-form");
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/post/${id}`, {
+      const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
       });
   

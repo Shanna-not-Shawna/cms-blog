@@ -46,61 +46,28 @@ router.get("/post/:id", async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
+    
+  
     res.render("post", {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      currentUser: req.session.user_id
+
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-router.get("newpost", withAuth, async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [
-        {
-          model: Post
-        },
-      ],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render("/newpost", {
-      ...user,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
+router.get("/", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/newpost");
+    return;
   }
+
+  res.render("/login");
 });
 
-// // withAuth required to view profile
-// router.get("/profile", withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-// attributes: { exclude: ["password"] },
-//       include: [
-//         {
-//           model: Post
-//         },
-//       ],
-//     });
-
-//     const user = userData.get({ plain: true });
-
-//     res.render("profile", {
-//       ...user,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.get("/dashboard", withAuth, async (req, res) => {
   try {

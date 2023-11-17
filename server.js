@@ -47,9 +47,9 @@ sequelize.sync({ force: false }).then(() => {
 
 
 // TODOs
+
 // Fix delete comment - no error
 // Fix delete post - "Failed to delete post"
-// Fix Newpost route - "Cannot GET /newpost"
 // Check javascript links at bottom of each page and maybe add #if around them
-// Fix Log out functionality - "failed to log out"
-// Format date on comments and posts
+// Style nav bar to be more legible
+// Remove 'modal' on form on createAccount.handlebars

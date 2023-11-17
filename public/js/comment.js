@@ -8,8 +8,12 @@ addCommentButton.addEventListener("click", function() {
   newCommentForm.style.display = "block";
 });
  
-function deleteComment(commentId) {
-  console.log(commentId);
+function deleteComment(commentId, commentUserId, currentUserId) {
+  if(commentUserId !== currentUserId){
+    alert("You can't delete this!")
+  }else{
+    ///fetch
+  }
 };
 
 const newFormHandler = async (event) => {
